@@ -35,12 +35,13 @@ class LoginController extends Controller
 
         }
 
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json([
+            'code' => 401,
+            'status' => 'unauthorized',
+            'errors' => [
+                'message' => 'Unauthorized'
+            ]
+        ], 401);
         
-    }
-
-    public function logout(Request $request)
-    {
-
     }
 }
